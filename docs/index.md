@@ -1,6 +1,5 @@
 ---
-layout: post
-title: Information about LBM
+layout: default
 ---
 
 # Brief introduction to LBM
