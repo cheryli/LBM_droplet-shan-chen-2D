@@ -12,7 +12,7 @@ title: introduction
 $$ \mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z $$
 
 
-    <p>
-    When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
-    $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-    </p>
+ <p>
+ When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+ </p>
