@@ -11,3 +11,9 @@ title: introduction
 $$ \mathrm{d} V = d^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z $$  
 Then, let's image three more velocity coordinates $v_x, v_y, v_z $ which constitute to a 6-dimensional phase space with three position coordinates. A point in this phase space has the a differential volume element as: 
 $$ \mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z $$
+
+Equation:
+
+\begin{equation}
+E = mc^2
+\end{equation}
