@@ -13,6 +13,9 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 $$\mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z$$
 
+\begin{equation}
+E = mc^2
+\end{equation}
 
 
  When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
