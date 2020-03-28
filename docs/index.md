@@ -12,11 +12,11 @@ title: introduction
 &emsp;Firstly, we are all familia with the 3-dimensional space which has three position coordinates $x, y, z$. The small differential volume element is: 
 $$ \mathrm{d} V = d^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \notag$$ 
 Then, let's image three more velocity coordinates $v_x, v_y, v_z $ which constitute to a 6-dimensional phase space with three position coordinates. A point in this phase space has the a differential volume element as: 
-$$\mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z \notag$$
+$$\mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}v_x \mathrm{d}v_y \mathrm{d}v_z \nonumber$$
 
 
 \begin{equation}
-E = mc^2 \tag{ref1}
+E = mc^2 \label{ref1}
 \end{equation}
 
 here is the famous equation: \ref{ref1}
