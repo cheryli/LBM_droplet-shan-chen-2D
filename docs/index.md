@@ -16,12 +16,12 @@ Then, let's image three more velocity coordinates $\xi _x, \xi _y, \xi _z $ whic
 $$\mathrm{d} V = \mathrm{d}^3\mathbf{x}\,\mathrm{d}^3\mathbf{\xi} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}\xi _x \mathrm{d}\xi _y \mathrm{d}\xi _z \nonumber$$
 So that we can define a density distribution $ f(\mathbf{x}, \xi, t) $ of the particles in that 6-dimensional phase space as:
 $$ \mathrm{d} N = f(\mathbf{x}, \mathbf{\xi}, t) \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{\xi}\nonumber $$
-Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.
+Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.<br/>
 
 Finally, the distribution function is also connected to the macroscopic variables using the its **moments**.
 
 For instances, the **mass density** as the moment:
-<p> $$ \rho(\mathbf{x}, t) = \int f(\mathbf{x}, \xi, t)\,  d^3 \xi  $$ </p>
+<p> $$ \rho(\mathbf{x}, t) = \int f(\mathbf{x}, \xi, t)\,  d^3 \xi  $$ </p><br/>
 
 The **momentum density** as:
 <p> $$ \rho(\mathbf{x}, t) u(\mathbf{x}, t) = \int \xi f(\mathbf{x}, \xi, t) \, d^3 \xi $$ </p>
@@ -55,21 +55,28 @@ $$ f^{eq} = $$
 &emsp;here we can see, the BGK model assumed the effect of collision term is to force the distribution function back to the Maxwell-Boltzmann distribution and the rate at which this occurs is proportional to the collision frequency. And the constant $ \tau $ is known as the **relaxation time** which directly determines the transport coefficients such as the viscosity and heat diffusivity. 
 
 ### 1.3 Macroscopic Conservation Equation
+<br/>
 
 ### 1.4 Chapman-Enskog Analysis
+<br/>
 
 ## 2. Lattice Boltzmann Method
+<br/>
 
 ### 2.1 Discretisation of Boltzmann Equation
-
+<br/>
 
 ### 2.2 MRT Collision Operators
+<br/>
 
 ### 2.3 Discrete Velocity Models
+<br/>
 
 ## 3. Forces in LBM
+<br/>
 
 ## 4. Initial and Boundary Conditions
+<br/>
 
 ## 5. Multiphase Flow
 
