@@ -16,7 +16,8 @@ Then, let's image three more velocity coordinates $\xi _x, \xi _y, \xi _z $ whic
 $$\mathrm{d} V = \mathrm{d}^3\mathbf{x}\,\mathrm{d}^3\mathbf{\xi} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}\xi _x \mathrm{d}\xi _y \mathrm{d}\xi _z \nonumber$$
 So that we can define a density distribution $ f(\mathbf{x}, \xi, t) $ of the particles in that 6-dimensional phase space as:
 $$ \mathrm{d} N = f(\mathbf{x}, \mathbf{\xi}, t) \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{\xi}\nonumber $$
-Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.<br/>
+Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.</p>
+<br/>
 
 Finally, the distribution function is also connected to the macroscopic variables using the its **moments**.
 
