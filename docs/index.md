@@ -20,18 +20,18 @@ Here $ d N $ is the number of molecular which all have positions lying within a 
 </p>
 
 ### 1.2 A brief Derivation of Boltzmann Equation
-<p>
+
 ... to be continue ...
-$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \mathbf{\Omega}(f) $$
+<p> 
+$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \mathbf{\Omega}(f) $$ </p>
 
 Then, collision term given by boltzmann based on "molecular chaos assumption" is too complicated and has so much challenges to solve. Therefore, Bhatnagar, Gross and Krook simplified collision term as so called **BGK-model**:
-
-
-$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \frac{1}{\tau} \left( f^{eq} - f \right) $$
+<p>
+$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \frac{1}{\tau} \left( f^{eq} - f \right) $$ </p>
 
 where $\frac{1}{\tau} $ is the collision frequency, $f^{eq}$Maxwell-Boltzmann distribution function.
 &emsp;here we can see, the BGK model assumed the effect of collision term is to force the distribution function back to the Maxwell-Boltzmann distribution and the rate at which this occurs is proportional to the collision frequency. And the constant $ \tau $ is known as the **relaxation time** which directly determines the transport coefficients such as the viscosity and heat diffusivity. 
-</p>
+
 ### 1.3 Macroscopic Conservation Equation
 
 
