@@ -11,13 +11,33 @@ title: introduction
 &emsp;There are different views between LBM and other CFD methods. On the one hand, most of CFD methods directly solve the N-S equations by treating the fluid as a *"control volume"*, which means that volume is small enough to be a differential volume of the whole flow and large enough to contain infinite molecules so that can be viewed as a continuous medium at the mean time. However, one the other hand, molecular dynamics trace *every molecular* using Newton's second law. However, lattice Boltzmann method study the probability density distribution function of the particle, which is the statistical characteristics of the flow. So, what is the *PDF(probability density distribution)* of particles?<br/>
 <p>
 &emsp;Firstly, we are all familia with the 3-dimensional space which has three position coordinates $x, y, z$. The small differential volume element is: 
-$$ \mathrm{d} V = d^3\mathbf{r} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \nonumber$$ 
+$$ \mathrm{d} V = d^3\mathbf{x} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \nonumber$$ 
 Then, let's image three more velocity coordinates $\xi _x, \xi _y, \xi _z $ which constitute to a 6-dimensional phase space with three position coordinates. A point in this phase space has the a differential volume element as: 
-$$\mathrm{d} V = \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{\xi} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}\xi _x \mathrm{d}\xi _y \mathrm{d}\xi _z \nonumber$$
-So that we can define a density distribution $ f(\mathbf{r}, \xi, t) $ of the particles in that 6-dimensional phase space as:
-$$ \mathrm{d} N = f(\mathbf{r}, \mathbf{\xi}, t) \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{\xi}\nonumber $$
+$$\mathrm{d} V = \mathrm{d}^3\mathbf{x}\,\mathrm{d}^3\mathbf{\xi} = \mathrm{d}x \mathrm{d}y \mathrm{d}z \mathrm{d}\xi _x \mathrm{d}\xi _y \mathrm{d}\xi _z \nonumber$$
+So that we can define a density distribution $ f(\mathbf{x}, \xi, t) $ of the particles in that 6-dimensional phase space as:
+$$ \mathrm{d} N = f(\mathbf{x}, \mathbf{\xi}, t) \mathrm{d}^3\mathbf{r}\,\mathrm{d}^3\mathbf{\xi}\nonumber $$
 Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.
-</p>
+
+Finally, the distribution function is also connected to the macroscopic variables using the its **moments**.
+
+For instances, the **mass density** as the moment:
+<p> $$ \rho(\mathbf{x}, t) = \int f(\mathbf{x}, \xi, t)\,  d^3 \xi  $$ </p>
+
+The **momentum density** as:
+<p> $$ \rho(\mathbf{x}, t) u(\mathbf{x}, t) = \int \xi f(\mathbf{x}, \xi, t) \, d^3 \xi $$ </p>
+&emsp; note that $ u(\mathbf{x}, t) $ is the local mean velocity of the fluid.
+<br/>
+
+The **total energy density** as:
+<p> $$ \rho (\mathbf{x}, t) E(\mathbf{x}, t) = \frac{1}{2} \int \left| \xi ^2 \right| f(\mathbf{x}, \xi, t) \, d^3 \xi $$ </p>
+
+&emsp; This contains two types of energy: the **kinetic energy** $ \frac{1}{2} \rho u^2 $ due to the bulk motion of the fluid and the **internal energy** due to the random thermal motion of the particles.
+
+The **internal energy** as:
+<p> $$ \rho(\mathbf{x}, t) e(\mathbf{x}, t) = \int \left|v^2 \right| f(\mathbf{x}, \xi, t) \, d^3 \xi  $$ </p>
+
+&emsp; here we introduce the third velocity: **relative velocity $v$**, which represent the deviation of the particle velocity from the local mean velocity:
+<p> $$ v(\mathbf{x}, t) = \xi (\mathbf{x}, t) - u(\mathbf{x}, t) $$ </p>
 
 ### 1.2 A brief Derivation of Boltzmann Equation
 
@@ -29,17 +49,19 @@ Then, collision term given by boltzmann based on "molecular chaos assumption" is
 <p>
 $$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \frac{1}{\tau} \left( f^{eq} - f \right) $$ </p>
 
-where $\frac{1}{\tau} $ is the collision frequency, $f^{eq}$Maxwell-Boltzmann distribution function.
+where $\frac{1}{\tau} $ is the collision frequency, $f^{eq}$ is Maxwell-Boltzmann distribution function.
+<p>
+$$ f^{eq} = $$
 &emsp;here we can see, the BGK model assumed the effect of collision term is to force the distribution function back to the Maxwell-Boltzmann distribution and the rate at which this occurs is proportional to the collision frequency. And the constant $ \tau $ is known as the **relaxation time** which directly determines the transport coefficients such as the viscosity and heat diffusivity. 
 
 ### 1.3 Macroscopic Conservation Equation
-
 
 ### 1.4 Chapman-Enskog Analysis
 
 ## 2. Lattice Boltzmann Method
 
-### 2.1 Discretisation of Lattice Boltzmann Method
+### 2.1 Discretisation of Boltzmann Equation
+
 
 ### 2.2 MRT Collision Operators
 
