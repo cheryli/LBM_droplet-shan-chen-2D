@@ -60,6 +60,7 @@ $$ f^{eq}(\mathbf{x}, \xi, t) = \frac{\rho}{(2 \pi RT)^ {d/2}} exp\left[-  \frac
 [paragraph](# "Brief introduction to LBM")
 
 <br/>
+
 ### 1.3 Macroscopic Conservation Equation
 <br/>
 
