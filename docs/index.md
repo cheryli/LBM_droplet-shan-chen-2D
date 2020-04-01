@@ -53,11 +53,10 @@ $$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f 
 where $\frac{1}{\tau} $ is the collision frequency, $f^{eq}$ is Maxwell-Boltzmann distribution function.
 <p>
 $$ f^{eq}(\mathbf{x}, \xi, t) = \frac{\rho}{(2 \pi RT)^ {d/2}} exp\left[-  \frac{(\xi - u)^2}{2RT} \right]  \label{ref_ceq} $$
+&emsp; where $T,\rho, u$ are the macroscopic quantities of temperature, density and fluid velocity, respectively.   $d$ is the number of spatial dimensions and the gas constant $R = k_B / m$ is given by the Boltzmann constant $k_B$ and the particle mass $m$.
 </p>
 
 &emsp;here we can see, the BGK model assumed the effect of collision term is to force the distribution function back to the Maxwell-Boltzmann distribution and the rate at which this occurs is proportional to the collision frequency. And the constant $ \tau $ is known as the **relaxation time** which directly determines the transport coefficients such as the viscosity and heat diffusivity. 
-
-[paragraph](###12-A-brief-Derivation-of-Boltzmann-Equation)
 
 <br/>
 
