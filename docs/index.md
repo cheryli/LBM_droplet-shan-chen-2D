@@ -19,7 +19,7 @@ $$ \mathrm{d} N = f(\mathbf{x}, \mathbf{\xi}, t) \mathrm{d}^3\mathbf{r}\,\mathrm
 Here $ d N $ is the number of molecular which all have positions lying within a volume element $ d^3\mathbf{r} $ about $\mathbf{r}$ and velocities lying within a volume element $ d^3\xi $ about $\xi$ ,at time $t $.</p>
 <br/>
 
-Finally, the distribution function is also connected to the macroscopic variables using the its **moments**.
+Finally, the distribution function is also connected to the macroscopic variables using its **moments**.
 
 For instances, the **mass density** as the moment:
 <p> $$ \rho(\mathbf{x}, t) = \int f(\mathbf{x}, \xi, t)\,  d^3 \xi  $$ </p><br/>
@@ -57,7 +57,7 @@ $$ f^{eq}(\mathbf{x}, \xi, t) = \frac{\rho}{(2 \pi RT)^ {d/2}} exp\left[-  \frac
 
 &emsp;here we can see, the BGK model assumed the effect of collision term is to force the distribution function back to the Maxwell-Boltzmann distribution and the rate at which this occurs is proportional to the collision frequency. And the constant $ \tau $ is known as the **relaxation time** which directly determines the transport coefficients such as the viscosity and heat diffusivity. 
 
-[paragraph](# "1.2 A brief Derivation of Boltzmann Equation")
+[paragraph](### "1.2 A brief Derivation of Boltzmann Equation")
 
 <br/>
 
