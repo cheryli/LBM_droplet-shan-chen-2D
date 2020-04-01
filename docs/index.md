@@ -72,7 +72,7 @@ $$ f^{eq}(\mathbf{x}, \xi, t) = \frac{\rho}{(2 \pi RT)^ {d/2}} exp\left[-  \frac
 
 ### 2.1 Discretisation of Boltzmann Equation
 Recall the continues Boltzmann equation with BGK collision term as:
-$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \frac{1}{\tau} \left( f^{eq} - f \right)  \tag{\ref{ref_cbm_bgk}} $$
+<p>$$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \frac{1}{\tau} \left( f^{eq} - f \right)  \tag{\ref{ref_cbm_bgk}} $$</p>
 
 <br/>
 
