@@ -125,6 +125,7 @@ where S is the relaxation matrix and it's a diagonal matrix $ S = diag(w_1, w_2,
 ### 2.3 Discrete Velocity Models
 &emsp;D2Q9 model for two-dimensional simulations:
 ![D2Q9.png](https://i.loli.net/2020/04/02/OxP75GjokFCvWac.png)
+</br>
 the weights are $ w_0 = 4/9, w_{1-4} = 1/9, w_{5-8} = 1/36 $,  and the discrete velocity is given as:
 <p>$$ 
 [e_0, e_1, e_2, e_3, e_4, e_5, e_6, e_7, e_8] = c \left[
