@@ -83,27 +83,112 @@ and the equilibrium distribution function $f^{eq}$ as:
 
 <br/><br/><br/>... to be continue ...<br/><br/><br/>
 
-&emsp;Here we get the **lattice Boltzmann Equation with BGK collision operator**, also sometimes called the **_lattice BGK(LBGK) equation_**:
-<p> $$ f_i(x + \mathbf{e}_i \delta_t, t + \delta_t ) - f_i(x, t) = - \frac{\delta_t}{\tau} [ f(x, t) - f^{eq}(x, t) ] .$$ </p>
+&emsp; The **lattice Boltzmann equation(LBE)** is:
+<p> $$ f_i(x + \mathbf{e}_i \delta_t, t + \delta_t ) - f_i(x, t) = \delta_t \Omega_i(x,t)\ $$ </p>
 
-Usually in our simulations, we use *lattice units* and set time step $\delta_t = 1$ and lattice space $\delta_x = 1$, which represent the time and space resolutions, respectively. 
+where $f_i(x, t)$ is the **discrete-velocity distribution function**, often called the particle **populations** and $ e_i = (e_{ix}, e_{iy}, e_{iz})$ is a set of **discrete velocity**.
+<br/>
+
+&emsp;Here we get the **lattice Boltzmann equation with BGK collision operator**, also sometimes called the **_lattice BGK(LBGK) equation_**:
+<p> $$ f_i(x + \mathbf{e}_i \delta_t, t + \delta_t ) - f_i(x, t) = - \frac{\delta_t}{\tau} [ f_i(x, t) - f_i^{eq}(x, t) ] .$$ </p>
+
+Usually in our simulations, we use *lattice units* to set time step $\delta_t = 1$ and lattice space $\delta_x = 1$, which represent the time and space resolutions, respectively. 
 
 &emsp;So that we can define a **lattice constant** $c = \delta_x / \delta_t = 1$. And the **LBGK equation** becomes:
-<p> $$ f_i(x + \mathbf{e}_i, t + 1 ) - f_i(x, t) = - \frac{1}{\tau} [ f(x, t) - f^{eq}(x, t) ] $$ </p>
+<p> $$ f_i(x + \mathbf{e}_i, t + 1 ) - f_i(x, t) = - \frac{1}{\tau} [ f_i(x, t) - f_i^{eq}(x, t) ] .$$ </p>
 
-where $f_i(x, t)$ is the **discrete-velocity distribution function**, often called the particle **populations**. $ e_i = (e_{ix}, e_{iy}, e_{iz})$ is a set of **discrete velocity**.
+&emsp;The **discrete equilibrium distribution function** $f^{eq}$ as:
 
-&emsp;And the **discrete equilibrium distribution function** $f^{eq}$ as:
+<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>
 
-<p> $$ f^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{c_s^4} - \frac{u^2}{2c_s^2} \right] $$</p>
-
-with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$
+with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$ And the **kinematic viscosity** of the fluid $\nu$ is determined by the relaxation time $\tau$ as $ \nu = c_s^2 (\tau - 0.5)$.
 <br/>
 
 ### 2.2 MRT Collision Operators
+&emsp;The BGK model is an elegant and simple collision operator of LBE, however, it suffers from the accuracy(especially for large viscosities) and stability(in particular for small viscosities or large Reynolds numbers). So we have **multiple-relaxation-time(MRT)** collision operators to offer more free parameters that can be tuned to overcome these problems.
+
+The main idea of MRT collision operators is to perform the collision in **moment space** instead of the velocity space. We use a carefully chosen *transformation matrix* $M$ to linearly map the *population space* $f$ to the *moment space* $m$, using $ m = Mf $. So that the $m_k$ directly correspond to the hydrodynamic moments(density, momentum, momentum flux tensor, etc). Thus, it's possible to affect those terms by choosing different relaxation rates $w_i$. In contrast, the BGK model relaxes all the moments with the same relaxation rate $w = 1 / \tau$. 
+
+&emsp; LBE with MRT collision operator:
+
+<p>$$ f_i(x + \mathbf{e}_i, t + 1 ) - f_i(x, t) = -M^{-1} S M \left[f_i(x,t) - f_i^{eq}(x,t) \right]  ,$$</p>
+
+where S is the relaxation matrix and it's a diagonal matrix $ S = diag(w_1, w_2, w_3, \dots, w_q) $
+
+&emsp; Left multiply M to the both side of the above equation, we get:
+
+<p>$$ m^* - m = -S(m -m^{eq}) .$$</p>
+
+
 <br/>
 
 ### 2.3 Discrete Velocity Models
+&emsp;D2Q9 model for two-dimensional simulations:
+![D2Q9.png](https://i.loli.net/2020/04/02/OxP75GjokFCvWac.png)
+the weights are $ w_0 = 4/9, w_{1-4} = 1/9, w_{5-8} = 1/36 $,  and the discrete velocity is given as:
+<p>$$ 
+[e_0, e_1, e_2, e_3, e_4, e_5, e_6, e_7, e_8] = c \left[
+\begin{matrix}
+    0 & 1 & 0 & -1 & 0  & 1 & -1 & -1 & 1  \\
+    0 & 0 & 1 & 0  & -1 & 1 &  1 & -1 & -1
+\end{matrix}    
+\right].
+$$ </p>
+Remember that $ c = \delta_x / \delta_t $ is the lattice constant.
+<br/><br/><br/>
+
+&emsp;For MRT model, we choose the transformation matrix $M$ as:
+<p>$$
+M_{D2Q9} = \left[
+\begin{matrix}
+    M_\rho      \\
+    M_e         \\
+    M_\epsilon  \\
+    M_{j_x}     \\
+    M_{q_x}     \\
+    M_{j_y}     \\
+    M_{q_y}     \\
+    M_{p_{xx}}  \\
+    M_{p_{xy}}
+\end{matrix}
+\right] = \left[
+\begin{matrix}
+    1   \\
+    -4 + 3(e_x^2 + e_y^2)   \\
+    4 - \frac{21}{2} (e_x^2 + e_y^2) + \frac{9}{2} (c_x^2 + c_y^2)^2  \\
+    e_x \\
+    \left[-5 + 3(e_x^2 + e_y^2) \right] e_x \\
+    e_y \\
+    \left[-5 + 3(e_x^2 + e_y^2) \right] e_y \\
+    e_x^2 - e_y^2   \\
+    e_x e_y
+\end{matrix}
+\right] = \left[
+\begin{matrix}
+    1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1   \\
+    -4 & -1 & -1 & -1 & -1 & 2  & 2  & 2  & 2   \\
+    4  & -2 & -2 & -2 & -2 & 1  & 1  & 1  & 1   \\
+    0  & 1  & 0  & -1 & 0  & 1  & -1 & -1 & 1   \\
+    0  & -2 & 0  & 2  & 0  & 1  & -1 & -1 & 1   \\
+    0  & 0  & 1  & 0  & -1 & 1  & 1  & -1 & -1  \\
+    0  & 0  & -2 & 0  & 2  & 1  & 1  & -1 & -1  \\
+    0  & 1  & -1 & 1  & -1 & 0  & 0  & 0  & 0   \\
+    0  & 0  & 0  & 0  & 0  & 1  & -1 & 1  & -1
+\end{matrix}
+\right]
+$$</p>
+where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_z$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
+
+&emsp;The equilibrium moments as:
+<p> $$ m_{D2Q9}^{eq} = M f^{eq} = M \left[
+\begin{matrix}
+d
+\end{matrix}
+\right]
+$$ </p>
+
+&emsp;The relaxation matrix is $ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) $.
+
 <br/>
 
 ## 3. Forces in LBM
