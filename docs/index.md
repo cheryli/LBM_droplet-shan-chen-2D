@@ -1,6 +1,5 @@
 ---
 layout: default
-title: introduction
 ---
 
 # Brief introduction to LBM
@@ -47,6 +46,10 @@ Here we introduce the third velocity: **relative velocity $v$**, which represent
 ### 1.2 A brief Derivation of Boltzmann Equation
 
 ... to be continue ...
+
+---
+
+&emsp;Here we get the Boltzmann Equation:
 <p> 
 $$ \frac{\partial f}{\partial t} + \xi \cdot \nabla f  + a \cdot \nabla_{\xi} f = \mathbf{\Omega}(f) .$$ </p>
 
@@ -81,13 +84,19 @@ where $T,\rho, u$ are the macroscopic quantities of temperature, density and flu
 and the equilibrium distribution function $f^{eq}$ as:
 <p> $$ f^{eq}(x, \xi, t) = \frac{\rho}{(2 \pi RT)^ {d/2}} exp\left[-  \frac{(\xi - u)^2}{2RT} \right]  \tag{\ref{ref_ceq}} .$$ </p>
 
+---
+
 <br/><br/><br/>... to be continue ...<br/><br/><br/>
+
+---
 
 &emsp; The **lattice Boltzmann equation(LBE)** is:
 <p> $$ f_i(x + \mathbf{e}_i \delta_t, t + \delta_t ) - f_i(x, t) = \delta_t \Omega_i(x,t)\ $$ </p>
 
 where $f_i(x, t)$ is the **discrete-velocity distribution function**, often called the particle **populations** and $ e_i = (e_{ix}, e_{iy}, e_{iz})$ is a set of **discrete velocity**.
 <br/>
+
+---
 
 &emsp;Here we get the **lattice Boltzmann equation with BGK collision operator**, also sometimes called the **_lattice BGK(LBGK) equation_**:
 <p> $$ f_i(x + \mathbf{e}_i \delta_t, t + \delta_t ) - f_i(x, t) = - \frac{\delta_t}{\tau} [ f_i(x, t) - f_i^{eq}(x, t) ] .$$ </p>
@@ -99,7 +108,7 @@ Usually in our simulations, we use *lattice units* to set time step $\delta_t = 
 
 &emsp;The **discrete equilibrium distribution function** $f^{eq}$ as:
 
-<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>
+<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>
 
 with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$ And the **kinematic viscosity** of the fluid $\nu$ is determined by the relaxation time $\tau$ as $ \nu = c_s^2 (\tau - 0.5)$.
 <br/>
@@ -125,7 +134,12 @@ where S is the relaxation matrix and it's a diagonal matrix $ S = diag(w_1, w_2,
 ### 2.3 Discrete Velocity Models
 &emsp;D2Q9 model for two-dimensional simulations:
 
-![D2Q9.png](https://i.loli.net/2020/04/02/OxP75GjokFCvWac.png)
+<!-- ![D2Q9.png](https://i.loli.net/2020/04/02/OxP75GjokFCvWac.png) -->
+
+<div style="align: center">
+    <img src="https://i.loli.net/2020/04/02/OxP75GjokFCvWac.png">
+</div> 
+
 <br/>
 the weights are $ w_0 = 4/9, w_{1-4} = 1/9, w_{5-8} = 1/36 $,  and the discrete velocity is given as:
 <p>$$ 
@@ -177,8 +191,9 @@ M_{D2Q9} = \left[
     0  & 1  & -1 & 1  & -1 & 0  & 0  & 0  & 0   \\
     0  & 0  & 0  & 0  & 0  & 1  & -1 & 1  & -1
 \end{matrix}
-\right]
+\right],
 $$</p>
+
 where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_z$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
 
 &emsp;The equilibrium moments as:
@@ -186,10 +201,45 @@ where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$
 \begin{matrix}
 d
 \end{matrix}
-\right]
+\right].
 $$ </p>
 
-&emsp;The relaxation matrix is $ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) $.
+you can find the detailed derivation at [here](https://cheryli.github.io/LBM_droplet-shan-chen-2D/derivation)
+
+&emsp;The relaxation matrix is:
+<p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
+
+We usually set $ s_\rho  = 0 $ and $ s_j = 0 $, the $s_\epsilon$ and $s_q$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
+<p>$$ p = \rho c_s^2,   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
+
+<!-- 可折叠式内容 -->
+<details>
+  <summary> Click here for more information of these different viscosity coefficients: </summary>
+
+  &emsp;Let's have a look of four different kinds of viscosity coefficients which we used very often. Note that all kind of viscosity coefficients are positive due to the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). Moreover, if viscosity doesn't play an important role, we can neglect it to treat the fluid as *ideal or inviscid fluid*.
+
+  1. coefficient of *Shear viscosity* or *dynamic viscosity* or *absolute viscosity*  $\eta$ :
+  2. coefficient of *longitudinal viscosity* or *second coefficient of viscosity* $\zeta$ :
+  3. coefficient of *bulk viscosity* $\eta_B$ :
+  4. coefficient of *kinematic viscosity* or *momentum diffusivity* $\nu$ :
+
+  <p> $$ \nu = \frac{\eta}{\rho},  \qquad  \eta_B = 2\eta / 3 + \zeta $$</p>
+
+  &emsp;Now, let's consider a general viscous stress tensor $\sigma$ as:
+  <p> $$
+    \sigma = \eta \left( \frac{\partial u_\alpha}{\partial x_\beta} + \frac{\partial u_\beta}{\partial x_\alpha}   \right) + \zeta \, \delta_{\alpha \beta} \frac{\partial u_\gamma}{\partial x_\gamma},
+  $$ </p>
+
+  separate to the *shear stress* and *normal stress* as:
+  
+  <p> $$
+    \sigma = \eta \left( \frac{\partial u_\alpha}{\partial x_\beta} + \frac{\partial u_\beta}{\partial x_\alpha} - \frac{3}{2} \delta_{\alpha \beta} \frac{\partial u_\gamma}{\partial x_\gamma}  \right) + \eta_B \, \delta_{\alpha \beta} \frac{\partial u_\gamma}{\partial x_\gamma},
+  $$ </p>
+
+  where $ \delta_{\alpha \beta} $ is an 2 by 2 identity matrix, and the [Einstein’s summation convention](https://en.wikipedia.org/wiki/Einstein_notation) is used.
+
+
+</details>
 
 <br/>
 
