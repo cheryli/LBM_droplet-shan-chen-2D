@@ -197,14 +197,22 @@ $$</p>
 where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_z$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
 
 &emsp;The equilibrium moments as:
-<p> $$ m_{D2Q9}^{eq} = M f^{eq} = M \left[
+<p> $$ m_{D2Q9}^{eq} = M f^{eq} = M  \rho \left[
 \begin{matrix}
-d
+    1   \\
+    \left( -2 + 3 u^2\right)    \\
+    \left(1 - 3 u^2\right)  \\
+    u_x \\
+    - u_x  \\
+    u_y \\
+    - u_y \\
+    \left(u_x^2 - u_y^2\right)   \\
+    u_x u_y  \\
 \end{matrix}
 \right].
 $$ </p>
 
-you can find the detailed derivation at [here](https://cheryli.github.io/LBM_droplet-shan-chen-2D/derivation)
+you can find the detailed derivation at [here](https://cheryli.github.io/LBM_droplet-shan-chen-2D/derivation).
 
 &emsp;The relaxation matrix is:
 <p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
