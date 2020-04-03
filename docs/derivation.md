@@ -1,3 +1,31 @@
-&emsp;The BGK model is an elegant and simple collision operator of LBE, however, it suffers from the accuracy(especially for large viscosities) and stability(in particular for small viscosities or large Reynolds numbers). So we have **multiple-relaxation-time(MRT)** collision operators to offer more free parameters that can be tuned to overcome these problems.
+---
+layout: default
+title: Derivation of Equilibrium Moments
+---
 
-The main idea of MRT collision operators is to perform the collision in **moment space** instead of the velocity space. We use a carefully chosen *transformation matrix* $M$ to linearly map the *population space* $f$ to the *moment space* $m$, using $ m = Mf $. So that the $m_k$ directly correspond to the hydrodynamic moments(density, momentum, momentum flux tensor, etc). Thus, it's possible to affect those terms by choosing different relaxation rates $w_i$. In contrast, the BGK model relaxes all the moments with the same relaxation rate $w = 1 / \tau$. 
+Recall that the discrete equilibrium distribution function is:
+
+<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>
+
+The equilibrium Moments as:
+
+<p> $$ m^{eq} = M f^{eq} $$ </p>
+
+### For $D2Q9$ model:
+
+the component of the distribution function can be written as:
+<p> $$
+\begin{aligned}
+f_0^{eq} &= \frac{4}{9} \rho \left(1 - \frac{3 u^2}{2} \right)   \\
+f_1^{eq} &= \frac{1}{9} \rho \left( 1 + 3u_x + \frac{9 u_x^2}{2} - \frac{3 u^2}{2} \right)    \\
+f_2^{eq} &= \frac{1}{9} \rho \left( 1 + 3u_y + \frac{9 u_y^2}{2} - \frac{3 u^2}{2} \right)    \\
+f_3^{eq} &= \frac{1}{9} \rho \left( 1 - 3u_x + \frac{9 u_x^2}{2} - \frac{3 u^2}{2} \right)    \\
+f_4^{eq} &= \frac{1}{9} \rho \left( 1 - 3u_y + \frac{9 u_y^2}{2} - \frac{3 u^2}{2} \right)    \\
+f_5^{eq} &= \frac{1}{36} \rho \left(  1 + 3 u_x + 3 u_y + \frac{9 u_x^2 + 9u_y^2 + 18 u_x u_y}{2} - \frac{3 u^2}{2} \right)     \\
+f_6^{eq} &= \frac{1}{36} \rho \left(  1 - 3 u_x + 3 u_y + \frac{9 u_x^2 + 9u_y^2 - 18 u_x u_y}{2} - \frac{3 u^2}{2} \right)     \\
+f_7^{eq} &= \frac{1}{36} \rho \left(  1 - 3 u_x - 3 u_y + \frac{9 u_x^2 + 9u_y^2 + 18 u_x u_y}{2} - \frac{3 u^2}{2} \right)     \\
+f_8^{eq} &= \frac{1}{36} \rho \left(  1 + 3 u_x - 3 u_y + \frac{9 u_x^2 + 9u_y^2 - 18 u_x u_y}{2} - \frac{3 u^2}{2} \right)
+\end{aligned}
+$$</p>
+
+
