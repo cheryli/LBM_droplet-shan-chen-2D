@@ -3,7 +3,7 @@ layout: default
 title: Derivation of Equilibrium Moments
 ---
 
-[Back to the introduction.](https://cheryli.github.io/LBM_droplet-shan-chen-2D)
+[**Back to the introduction.**](https://cheryli.github.io/LBM_droplet-shan-chen-2D)
 
 Recall that the discrete equilibrium distribution function is:
 

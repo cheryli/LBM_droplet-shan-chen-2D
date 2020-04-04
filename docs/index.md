@@ -108,7 +108,7 @@ Usually in our simulations, we use *lattice units* to set time step $\delta_t = 
 
 &emsp;The **discrete equilibrium distribution function** $f^{eq}$ as:
 
-<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>
+<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right]  , $$</p>
 
 with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$ And the **kinematic viscosity** of the fluid $\nu$ is determined by the relaxation time $\tau$ as $ \nu = c_s^2 (\tau - 0.5)$.
 <br/>
@@ -252,9 +252,50 @@ We usually set $ s_\rho  = 0 $ and $ s_j = 0 $, the $s_\epsilon$ and $s_q$ are f
 <br/>
 
 ## 3. Forces in LBM
+
 <br/>
 
 ## 4. Initial and Boundary Conditions
+
+&emsp;The initial and boundary conditions can be very complicated. However, we will keep it simple for now.
+
+### 4.1 Initial conditions：
+
+&emsp;For most cases, we set the initial distribution function as the equilibrium state:
+<p>$$
+    f_i(x, \, t=0) = f_i^{eq} (x, \, t=0)
+$$</p>
+
+### 4.2 Boundary conditions:
+
+&emsp;We will introduce two kinds of boundary conditions: Periodic and Wall.
+
+#### 4.2.1 Periodic boundary conditions:
+
+&emsp;Periodic boundary conditions state that *the fluid leaving the domain on one side will, instantaneously, re-enter at the opposite side*. Consequently, the momentum and mass are conserved in periodic boundary conditions. We usually this when simulating the periodic flow or just to provide a free boundary.
+
+&emsp;Assume our lattice node is from 1 to N. When doing the propagation(streaming), we need to apply a extra rule:  
+$$ x_N + 1 = x_1 $$
+The periodic boundary conditions, like a bridge, connected two separate boundaries together.
+<br/>
+
+#### 4.2.2 The Wall conditions - Bounce Back:
+
+&emsp;Note that we will only consider the **no-slip wall condition** for this moment.
+
+&emsp;Firstly, for the cases that the wall is *stationary*. Then we can assume that *the populations hit the solid wall during the propagation will reflect back to where they originally came from*. However, based on the how much time they take for the reflection, we have the **full-way bounce back** and the **half-way bounce back**.
+
+&emsp;Let's assume that the $x_N$ is a lattice node near the *bottom* wall. For the propagation of $D2Q9$ model:
+1. full-way bounce back: $ f_{2, 5, 6}(x_N, t + 1) = f_{4, 7, 8}(x_N, t) $
+2. half-way bounce back: $ f_{2, 5, 6}(x_N, t + 2) = f_{4, 7, 8}(x_N, t) $
+
+It's straightforward that those two scheme differ at the distance they need(time they need) for the bounce back. Keep in mind that the full-way bounce back has *first-order accurate*, however the half-way bounce back has a *second-order error*.
+
+---
+
+&emsp;Moreover, if the wall is moving with the velocity $u_w$, the half-way bounce back reads:
+<p>$$ f_i(x_N, t + 1) = f_i(x_N, t) - 2 w_i \rho \frac{e_i \cdot u_w}{c_s^2} $$</p>
+
 <br/>
 
 ## 5. Multiphase Flow
@@ -265,8 +306,11 @@ We usually set $ s_\rho  = 0 $ and $ s_j = 0 $, the $s_\epsilon$ and $s_q$ are f
 
 </p>
 
+<br/>
+<br/>
+<br/>
 
-
+---
 
 <p>
 <!-- reference example -->
