@@ -3,6 +3,8 @@ layout: default
 title: Derivation of Equilibrium Moments
 ---
 
+[Back to the introduction.](https://cheryli.github.io/LBM_droplet-shan-chen-2D)
+
 Recall that the discrete equilibrium distribution function is:
 
 <p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right] ,$$</p>

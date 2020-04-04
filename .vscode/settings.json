@@ -4,6 +4,7 @@
         "Discretisation",
         "Enskog",
         "Krook",
+        "LBGK",
         "mathbf",
         "mathrm",
         "nonumber"
