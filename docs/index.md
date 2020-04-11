@@ -217,8 +217,10 @@ you can find the detailed derivation at [here](https://cheryli.github.io/LBM_dro
 &emsp;The relaxation matrix is:
 <p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
 
-For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), the $s_\epsilon$、 $s_q$ and $s_e$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
+For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), the $s_\epsilon$、 $s_q$ and $s_e$ are free parameters to tune, $s_\nu = 1 / \tau$ relate to the viscosity. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
 <p>$$ p = \rho c_s^2 + \psi(\rho),   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_e} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
+
+refer to the MRT model of multiphase flow:[1](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.82.046708), [2](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.71.036701)
 
 [Click here for more information of these different viscosity coefficients](https://cheryli.github.io/LBM_droplet-shan-chen-2D/viscosity_coefficients)
 
