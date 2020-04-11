@@ -217,7 +217,7 @@ you can find the detailed derivation at [here](https://cheryli.github.io/LBM_dro
 &emsp;The relaxation matrix is:
 <p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
 
-For We usually set $ s_\rho  = 1 $ and $ s_j = 1 $, the $s_\epsilon$、 $s_q$ and $s_e$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
+For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), the $s_\epsilon$、 $s_q$ and $s_e$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
 <p>$$ p = \rho c_s^2,   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_e} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
 
 <!-- 可折叠式内容 -->
