@@ -217,8 +217,8 @@ you can find the detailed derivation at [here](https://cheryli.github.io/LBM_dro
 &emsp;The relaxation matrix is:
 <p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
 
-We usually set $ s_\rho  = 0 $ and $ s_j = 0 $, the $s_\epsilon$ and $s_q$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
-<p>$$ p = \rho c_s^2,   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
+For We usually set $ s_\rho  = 1 $ and $ s_j = 1 $, the $s_\epsilon$ and $s_q$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
+<p>$$ p = \rho c_s^2,   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_e} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
 
 <!-- 可折叠式内容 -->
 <details>
@@ -226,10 +226,13 @@ We usually set $ s_\rho  = 0 $ and $ s_j = 0 $, the $s_\epsilon$ and $s_q$ are f
 
   &emsp;Let's have a look of four different kinds of viscosity coefficients which we used very often. Note that all kind of viscosity coefficients are positive due to the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). Moreover, if viscosity doesn't play an important role, we can neglect it to treat the fluid as *ideal or inviscid fluid*.
 
-  1. coefficient of *Shear viscosity* or *dynamic viscosity* or *absolute viscosity*  $\eta$ :
-  2. coefficient of *longitudinal viscosity* or *second coefficient of viscosity* $\zeta$ :
-  3. coefficient of *bulk viscosity* $\eta_B$ :
-  4. coefficient of *kinematic viscosity* or *momentum diffusivity* $\nu$ :
+  1. coefficient of *Shear viscosity* or *dynamic viscosity* or *absolute viscosity*  $\eta$ : <br/>
+
+  2. coefficient of *longitudinal viscosity* or *second coefficient of viscosity* $\zeta$ :<br/>
+  
+  3. coefficient of *bulk viscosity* $\eta_B$ :<br/>
+  
+  4. coefficient of *kinematic viscosity* or *momentum diffusivity* $\nu$ :<br/>
 
   <p> $$ \nu = \frac{\eta}{\rho},  \qquad  \eta_B = 2\eta / 3 + \zeta $$</p>
 
@@ -293,7 +296,7 @@ It's straightforward that those two scheme differ at the distance they need(time
 
 ---
 
-&emsp;Moreover, if the wall is moving with the velocity $u_w$, the half-way bounce back reads:
+&emsp;Moreover, if the wall is *moving* with the velocity $u_w$, the half-way bounce back reads:
 <p>$$ f_i(x_N, t + 1) = f_i(x_N, t) - 2 w_i \rho \frac{e_i \cdot u_w}{c_s^2} $$</p>
 
 <br/>
