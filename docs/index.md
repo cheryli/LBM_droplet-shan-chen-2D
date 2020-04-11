@@ -224,7 +224,8 @@ For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), 
 <details>
   <summary> Click here for more information of these different viscosity coefficients: </summary>
 
-  &emsp;Let's have a look of four different kinds of viscosity coefficients which we used very often. Note that all kind of viscosity coefficients are positive due to the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). Moreover, if viscosity doesn't play an important role, we can neglect it to treat the fluid as *ideal or inviscid fluid*.
+  &emsp;Let's have a look of four different kinds of viscosity coefficients which we used very often. Note that all kind of viscosity coefficients are positive due to the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). Moreover, if viscosity doesn't play an important role, we can neglect it to treat the fluid as *ideal or inviscid fluid*.<br/>
+  
 
   1. coefficient of *Shear viscosity* or *dynamic viscosity* or *absolute viscosity*  $\eta$ : <br/>
 
