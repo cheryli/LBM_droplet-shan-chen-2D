@@ -218,14 +218,15 @@ you can find the detailed derivation at [here](https://cheryli.github.io/LBM_dro
 <p>$$ S_{D2Q9} = diag(s_\rho, s_e, s_\epsilon, s_j, s_q, s_j, s_q, s_\nu, s_\nu) .$$ </p>
 
 For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), the $s_\epsilon$、 $s_q$ and $s_e$ are free parameters to tune. And the pressure $p$, shear viscosity $\eta$ and bulk viscosity $\eta_B$ are given by:
-<p>$$ p = \rho c_s^2,   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_e} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
+<p>$$ p = \rho c_s^2 + \psi(\rho),   \qquad  \eta = \rho c_s^2 \left( \frac{1}{s_\nu} - \frac{1}{2} \right),    \qquad   \eta_B = \rho c_s^2 \left( \frac{1}{s_e} - \frac{1}{2} \right) - \frac{\eta}{3}.     $$</p>
+
+[Click here for more information of these different viscosity coefficients](https://cheryli.github.io/LBM_droplet-shan-chen-2D/viscosity_coefficients)
 
 <!-- 可折叠式内容 -->
-<details>
+<!-- <details>
   <summary> Click here for more information of these different viscosity coefficients: </summary>
 
   &emsp;Let's have a look of four different kinds of viscosity coefficients which we used very often. Note that all kind of viscosity coefficients are positive due to the [second law of thermodynamics](https://en.wikipedia.org/wiki/Second_law_of_thermodynamics). Moreover, if viscosity doesn't play an important role, we can neglect it to treat the fluid as *ideal or inviscid fluid*.<br/>
-  
 
   1. coefficient of *Shear viscosity* or *dynamic viscosity* or *absolute viscosity*  $\eta$ : <br/>
 
@@ -249,9 +250,7 @@ For two-phase flow, We usually set $ s_\rho  = 1 $ and $ s_j = 1 $(adjustable), 
   $$ </p>
 
   where $ \delta_{\alpha \beta} $ is an 2 by 2 identity matrix, and the [Einstein’s summation convention](https://en.wikipedia.org/wiki/Einstein_notation) is used.
-
-
-</details>
+</details> -->
 
 <br/>
 
