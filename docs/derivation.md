@@ -19,6 +19,24 @@ The equilibrium Moments as:
 
 ### For $D2Q9$ model:
 
+Transform matrix is:
+<p>$$
+M_{D2Q9} = 
+\left[
+\begin{matrix}
+    1  & 1  & 1  & 1  & 1  & 1  & 1  & 1  & 1   \\
+    -4 & -1 & -1 & -1 & -1 & 2  & 2  & 2  & 2   \\
+    4  & -2 & -2 & -2 & -2 & 1  & 1  & 1  & 1   \\
+    0  & 1  & 0  & -1 & 0  & 1  & -1 & -1 & 1   \\
+    0  & -2 & 0  & 2  & 0  & 1  & -1 & -1 & 1   \\
+    0  & 0  & 1  & 0  & -1 & 1  & 1  & -1 & -1  \\
+    0  & 0  & -2 & 0  & 2  & 1  & 1  & -1 & -1  \\
+    0  & 1  & -1 & 1  & -1 & 0  & 0  & 0  & 0   \\
+    0  & 0  & 0  & 0  & 0  & 1  & -1 & 1  & -1
+\end{matrix}
+\right],
+$$</p>
+
 the component of the distribution function can be written as:
 <p> $$
 \begin{aligned}
@@ -34,7 +52,7 @@ f_8^{eq} &= \frac{1}{36} \rho \left(  1 + 3 u_x - 3 u_y + \frac{9 u_x^2 + 9u_y^2
 \end{aligned}
 $$</p>
 
-Don't forget that: $u^2 = u_x^2 + u_y^2$.And use equation (\ref{Transform}), we have:
+Don't forget that: $u^2 = u_x^2 + u_y^2$.And using equation (\ref{Transform}), we have:
 
 <p> $$
 \begin{aligned}

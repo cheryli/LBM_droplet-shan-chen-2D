@@ -108,9 +108,9 @@ Usually in our simulations, we use *lattice units* to set time step $\delta_t = 
 
 &emsp;The **discrete equilibrium distribution function** $f^{eq}$ as:
 
-<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{e_i u}{c_s^2} + \frac{(e_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right]  , $$</p>
+<p> $$ f_i^{eq} = \rho w_i \left[1 + \frac{\mathbf{e}_i u}{c_s^2} + \frac{(\mathbf{e}_i u)^2}{2c_s^4} - \frac{u^2}{2c_s^2} \right]  , $$</p>
 
-with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$ And the **kinematic viscosity** of the fluid $\nu$ is determined by the relaxation time $\tau$ as $ \nu = c_s^2 (\tau - 0.5)$.
+with the **wight** $w_i$ specific to the chosen velocity set. The constant $c_s$ determines the relation $ p = c_s^2 \rho $ between pressure $p$ and density $\rho$ in basic isothermal LBE. So it represents the isothermal model's **speed of sound**, $c_s^2 = RT$. The value is given by $ c_s^2 = \frac{1}{3}c = \frac{1}{3} \delta_x^2 / \delta_t^2.$ And the **kinematic viscosity** of the fluid $\nu$ is determined by the relaxation time $\tau$ as $ \nu = c_s^2 (\tau - 0.5)$.
 <br/>
 
 ### 2.2 MRT Collision Operators
@@ -308,6 +308,11 @@ It's straightforward that those two scheme differ at the distance they need(time
 
 <p>
 
+[Introduction to the Shan-Chen model](https://cheryli.github.io/LBM_droplet-shan-chen-2D/Shan-Chen_model)
+
+<br/>
+
+[Introduction to the HCZ model](https://cheryli.github.io/LBM_droplet-shan-chen-2D/HCZ_model)
 
 </p>
 
