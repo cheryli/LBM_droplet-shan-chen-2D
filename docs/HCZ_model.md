@@ -15,36 +15,32 @@ You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.
 &emsp;This model introduced two distribution functions: a pressure distribution function $ \overline{g}_i $ which is able to recover the [N-S equation](https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations), and a index distribution function $ \overline{f}_i $ which is able to recover the [Cahn-Hilliard equation](https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation) to track the interface. And they satisfy the following evolution equations:
 
 <p>$$
-\begin{aligned}
-    &\overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t) \\
-    &=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
+    \overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t)    
+    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
         - \frac{(2 \tau - 1)}{2 \tau}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{RT} 
         \Gamma_i(u) \delta_t,
-\end{aligned}
 $$</p>
 
 <p>$$
-\begin{aligned}
-    &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t) \\
+\begin{align}
+    &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t)     \\
     &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
         - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big] \delta_t.
-\end{aligned}
+\end{align}
 $$</p>
 
 &emsp;Setting the time step $ \delta_t $ and the space step $ \delta_x $ both equal to 1, and remember that $c_s^2 = RT = 1/3$, we have the time evolution functions as:
 
 <p>$$
-\begin{aligned}
-    &\overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t) \\
-    &=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
+    \overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t)
+    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
         - \frac{(2 \tau - 1)}{2 \tau}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{c_s^2} 
-        \Gamma_i(u),    
-\end{aligned}       \label{LBE_f}
+        \Gamma_i(u),           \label{LBE_f}
 $$</p>
 
 <p>$$
