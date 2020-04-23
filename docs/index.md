@@ -306,7 +306,7 @@ It's straightforward that those two scheme differ at the distance they need(time
 ## 5. Multiphase Flow
 
 
-<p>
+
 
 [Introduction to the Shan-Chen model](https://cheryli.github.io/LBM_droplet-shan-chen-2D/Shan-Chen_model)
 
@@ -314,7 +314,7 @@ It's straightforward that those two scheme differ at the distance they need(time
 
 [Introduction to the HCZ model](https://cheryli.github.io/LBM_droplet-shan-chen-2D/HCZ_model)
 
-</p>
+
 
 <br/>
 <br/>
