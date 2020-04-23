@@ -15,39 +15,47 @@ You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.
 &emsp;This model introduced two distribution functions: a pressure distribution function $ \overline{g}_i $ which is able to recover the [N-S equation](https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations), and a index distribution function $ \overline{f}_i $ which is able to recover the [Cahn-Hilliard equation](https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation) to track the interface. And they satisfy the following evolution equations:
 
 <p>$$
-\overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t) 
-=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
-    - \frac{(2 \tau - 1)}{2 \tau}
-    \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{RT} 
-    \Gamma_i(u) \delta_t,
+\begin{aligned}
+    &\overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t) \\
+    &=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
+        - \frac{(2 \tau - 1)}{2 \tau}
+        \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{RT} 
+        \Gamma_i(u) \delta_t,
+\end{aligned}
 $$</p>
 
 <p>$$
-\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t) 
-=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
-    - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
-    \cdot   \big[ \, 
-        \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
-    \big] \delta_t.
+\begin{aligned}
+    &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t) \\
+    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
+        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
+        \cdot   \big[ \, 
+            \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
+        \big] \delta_t.
+\end{aligned}
 $$</p>
 
 &emsp;Setting the time step $ \delta_t $ and the space step $ \delta_x $ both equal to 1, and remember that $c_s^2 = RT = 1/3$, we have the time evolution functions as:
 
 <p>$$
-\overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t) 
-=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
-    - \frac{(2 \tau - 1)}{2 \tau}
-    \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{c_s^2} 
-    \Gamma_i(u),    \label{LBE_f}
+\begin{aligned}
+    &\overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t) \\
+    &=   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
+        - \frac{(2 \tau - 1)}{2 \tau}
+        \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{c_s^2} 
+        \Gamma_i(u),    
+\end{aligned}       \label{LBE_f}
 $$</p>
 
 <p>$$
-\overline{g}_i(x + \mathbf{e}_i, t + 1) - \overline{g}_i(x, t) 
-=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
-    - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
-    \cdot   \big[ \, 
-        \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
-    \big],          \label{LBE_g}
+\begin{aligned}
+    &\overline{g}_i(x + \mathbf{e}_i, t + 1) - \overline{g}_i(x, t) \\
+    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
+        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
+        \cdot   \big[ \, 
+            \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
+        \big],          
+\end{aligned}       \label{LBE_g}
 $$</p>
 
 where $u$ is the marco velocity, $F_s$ is the surface tension force and $G$ is the gravity force, they are all vectors(have component in different direction). $\Gamma(u)$ is a function of u as follows:
@@ -86,8 +94,8 @@ The index function $\phi$, the pressure $p$ and the velocity $u$ can be calculat
 \begin{aligned}
     \phi &= \sum \overline{f}_i, \\
     p &= \sum \overline{g}_i - \frac{1}{2} u \cdot \nabla \psi(\rho) \delta_t,   \\
-    \rho c_s^2 u &= \sum \mathbf{e}_i \overline{g}_i + \frac{c_s^2}{2} (F_s + G) \delta_t.  \label{macro}
-\end{aligned}
+    \rho c_s^2 u &= \sum \mathbf{e}_i \overline{g}_i + \frac{c_s^2}{2} (F_s + G) \delta_t.  
+\end{aligned}   \label{macro}
 $$</p>
 
 Note that the system has an additional fluid: the index fluid and an additional variable: the density of index fluid $\phi$ which indicate the component of the fluid occupying this lattice node. If $\phi$ equals the index density of light(or heavy) fluid $\phi = \phi_l(\phi_h)$, the density of the real fluid is $\rho = \rho_l(\rho_h)$, and the index density between the light and heavy index fluid $(\phi_l < \phi < \phi_h)$ is the interface reign. So we can linearly map the index density to the density, viscosity of the real fluid as flowers:
