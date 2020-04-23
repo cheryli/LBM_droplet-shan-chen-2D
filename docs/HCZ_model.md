@@ -5,7 +5,7 @@ title: HCZ Model for Multiphase Flow
 
 [**Back to the introduction.**](https://cheryli.github.io/LBM_droplet-shan-chen-2D)
 
-
+ 
 You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.1006/jcph.1999.6257) and [Zhang et al.(2000)](https://doi.org/10.1016/S0010-4655(00)00099-0), and this model has been developed for many years so a review of recent researches using this model is necessary for its best performance. 
 
 ---
