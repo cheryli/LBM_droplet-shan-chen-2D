@@ -23,14 +23,14 @@ You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.
 $$</p>
 
 <p>$$
-\begin{align}
+\begin{aligned}
     &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t)     \\
     &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
         - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big] \delta_t.
-\end{align}
+\end{aligned}
 $$</p>
 
 &emsp;Setting the time step $ \delta_t $ and the space step $ \delta_x $ both equal to 1, and remember that $c_s^2 = RT = 1/3$, we have the time evolution functions as:
