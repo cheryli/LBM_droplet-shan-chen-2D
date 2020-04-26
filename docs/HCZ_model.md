@@ -96,7 +96,7 @@ $$</p>
 
 Note that the system has an additional fluid: the index fluid and an additional variable: the density of index fluid $\phi$ which indicate the component of the fluid occupying this lattice node. If $\phi$ equals the index density of light(or heavy) fluid $\phi = \phi_l(\phi_h)$, the density of the real fluid is $\rho = \rho_l(\rho_h)$, and the index density between the light and heavy index fluid $(\phi_l < \phi < \phi_h)$ is the interface reign. So we can linearly map the index density to the density, viscosity of the real fluid as flowers:
 
-</p>$$
+<p>$$
 \begin{aligned}
     \rho(\phi) &= \rho_l \frac{\phi - \phi_l}{\phi_h - \phi_l} (\rho_h - \rho_l), \\
     \nu(\phi) &= \nu_l + \frac{\phi -\phi_l}{\phi_h - \phi_l} (\nu_h - \nu_l),
@@ -131,3 +131,7 @@ p_{th} = \phi RT \frac{
     \left( 1 - \frac{b \phi}{4} \right)^3     
 } - a \phi^2
 $$</p>
+
+---
+
+to be continue...
