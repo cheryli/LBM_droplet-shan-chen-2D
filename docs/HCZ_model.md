@@ -98,7 +98,7 @@ Note that the system has an additional fluid: the index fluid and an additional 
 
 <p>$$
 \begin{aligned}
-    \rho(\phi) &= \rho_l \frac{\phi - \phi_l}{\phi_h - \phi_l} (\rho_h - \rho_l), \\
+    \rho(\phi) &= \rho_l + \frac{\phi - \phi_l}{\phi_h - \phi_l} (\rho_h - \rho_l), \\
     \nu(\phi) &= \nu_l + \frac{\phi -\phi_l}{\phi_h - \phi_l} (\nu_h - \nu_l),
 \end{aligned}
 $$</p>
