@@ -133,6 +133,7 @@ p_{th} = \phi RT \frac{
 $$</p>
 
 ---
+
 #####Notes of programming:
 &emsp;On the lattice mesh, the *gradient $\nabla$ of the scalar field* can be calculated as:
 <p>$$
@@ -164,5 +165,7 @@ i.e.
     &- \frac{20}{6} \rho(i,j) \nonumber.
 \end{aligned}
 $$</p>
+
 ---
+
 to be continue...
