@@ -133,5 +133,36 @@ p_{th} = \phi RT \frac{
 $$</p>
 
 ---
+#####Notes of programming:
+&emsp;On the lattice mesh, the *gradient $\nabla$ of the scalar field* can be calculated as:
+<p>$$
+    \nabla_\alpha\,\rho = \frac{1}{c_s^2 \Delta x} \sum_i \omega_i \rho(x+e_{\alpha i} \Delta t)
+$$</p>
+i.e.
+<p>$$
+\begin{aligned}
+    \nabla_x \, \rho(i,j) &= \frac{1}{3}\big(\rho(i+1, j) - \rho(i-1, j)\big)
+        + \frac{1}{12}\big(\rho(i+1, j+1) - \rho(i-1, j-1)\big)
+        + \frac{1}{12}\big(\rho(i+1, j-1) - \rho(i-1, j+1)\big),\\
+    \nabla_y \, \rho(i,j) &= \frac{1}{3}\big(\rho(i, j+1) - \rho(i, j-1)\big)
+        + \frac{1}{12}\big(\rho(i+1, j+1) - \rho(i-1, j-1)\big)
+        + \frac{1}{12}\big(\rho(i-1, j+1) - \rho(i+1, j-1)\big),\\
+    \nabla \, \rho(i,j) &= \nabla_x \, \rho(i,j)+\nabla_y \, \rho(i,j)\nonumber.
+\end{aligned}
+$$</p>
 
+&emsp;The laplacian $\Delta$ or $\nabla^2$ of the scaler field can calculated as:
+<p>$$
+\Delta \rho = \nabla^2 \rho
+    = \frac{2}{c_s^2 \Delta x^2} \sum_i \omega_i \big[\rho(x+e_i \Delta t) - \rho(x)\big],
+$$</p>
+i.e.
+<p>$$
+\begin{aligned}
+\Delta \rho =& \frac{4}{6}\big( \rho(i+1,j) + \rho(i-1,j) + \rho(i,j+1) + \rho(i,j-1) \big)\\
+    &+ \frac{1}{6}\big( \rho(i+1,j+1) + \rho(i-1,j-1) + \rho(i+1,j-1) + \rho(i-1,j+1) \big)\\
+    &- \frac{20}{6} \rho(i,j) \nonumber.
+\end{aligned}
+$$</p>
+---
 to be continue...
