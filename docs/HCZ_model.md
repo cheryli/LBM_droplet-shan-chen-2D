@@ -135,7 +135,9 @@ $$</p>
 ---
 
 #####Notes of programming:
+
 &emsp;On the lattice mesh, the *gradient $\nabla$ of the scalar field* can be calculated as:
+
 <p>$$
     \nabla_\alpha\,\rho = \frac{1}{c_s^2 \Delta x} \sum_i \omega_i \rho(x+e_{\alpha i} \Delta t)
 $$</p>
