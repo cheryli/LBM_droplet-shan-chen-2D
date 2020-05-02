@@ -134,7 +134,7 @@ $$</p>
 
 ---
 
-##### Notes of programming:
+#### Notes of programming:
 
 &emsp;On the lattice mesh, the *gradient $\nabla$ of the scalar field* can be calculated as:
 
