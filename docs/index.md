@@ -280,7 +280,9 @@ $$</p>
 &emsp;Periodic boundary conditions state that *the fluid leaving the domain on one side will, instantaneously, re-enter at the opposite side*. Consequently, the momentum and mass are conserved in periodic boundary conditions. We usually this when simulating the periodic flow or just to provide a free boundary.
 
 &emsp;Assume our lattice node is from 1 to N. When doing the propagation(streaming), we need to apply a extra rule:  
-$$ x_N + 1 = x_1 $$
+
+<p>$$ x_N + 1 = x_1 $$</p>
+
 The periodic boundary conditions, like a bridge, connected two separate boundaries together.
 <br/>
 
