@@ -291,8 +291,8 @@ The periodic boundary conditions, like a bridge, connected two separate boundari
 &emsp;Firstly, for the cases that the wall is *stationary*. Then we can assume that *the populations hit the solid wall during the propagation will reflect back to where they originally came from*. However, based on the how much time they take for the reflection, we have the **full-way bounce back** and the **half-way bounce back**.
 
 &emsp;Let's assume that the $x_N$ is a lattice node near the *bottom* wall. For the propagation of $D2Q9$ model:
-1. full-way bounce back: $ f_{2, 5, 6}(x_N, t + 1) = f_{4, 7, 8}(x_N, t) $
-2. half-way bounce back: $ f_{2, 5, 6}(x_N, t + 2) = f_{4, 7, 8}(x_N, t) $
+1. full-way bounce back: $ f_{2, 5, 6}(x_N, t + 2) = f_{4, 7, 8}(x_N, t) $
+2. half-way bounce back: $ f_{2, 5, 6}(x_N, t + 1) = f_{4, 7, 8}(x_N, t) $
 
 It's straightforward that those two scheme differ at the distance they need(time they need) for the bounce back. Keep in mind that the full-way bounce back has *first-order accurate*, however the half-way bounce back has a *second-order error*.
 
