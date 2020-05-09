@@ -16,8 +16,8 @@ You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.
 
 <p>$$
     \overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t)    
-    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
-        - \frac{(2 \tau - 1)}{2 \tau}
+    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau_f}
+        - \frac{(2 \tau - 1)}{2 \tau_f}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{RT} 
         \Gamma_i(u) \delta_t,
 $$</p>
@@ -25,8 +25,8 @@ $$</p>
 <p>$$
 \begin{aligned}
     &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t)     \\
-    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
-        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
+    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau_g}
+        - \frac{(2 \tau_g - 1)(\mathbf{e}_i - u)}{2 \tau}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big] \delta_t.
@@ -37,8 +37,8 @@ $$</p>
 
 <p>$$
     \overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t)
-    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau}
-        - \frac{(2 \tau - 1)}{2 \tau}
+    =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau_f}
+        - \frac{(2 \tau_F - 1)}{2 \tau}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{c_s^2} 
         \Gamma_i(u),           \label{LBE_f}
 $$</p>
@@ -46,15 +46,21 @@ $$</p>
 <p>$$
 \begin{aligned}
     &\overline{g}_i(x + \mathbf{e}_i, t + 1) - \overline{g}_i(x, t) \\
-    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau}
-        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau}
+    &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau_g}
+        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau_g}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big],          
 \end{aligned}       \label{LBE_g}
 $$</p>
 
-where $u$ is the marco velocity, $F_s$ is the surface tension force and $G$ is the gravity force, they are all vectors(have component in different direction). $\Gamma(u)$ is a function of u as follows:
+where $u$ is the marco velocity, $F_s$ is the surface tension force and $G$ is the gravity force, they are all vectors(have component in different direction). Usually we set $ \tau_f = \tau_g $ in our simulation, and$ \nu = c_s^2 (\tau_g - 0.5) \delta_t $. If $\nu_h $ and $\nu_l$ isn't identical. Then:
+
+<p>$$
+\tau(\phi) = \tau_l + \frac{\phi - \phi_l}{\phi_h - \phi_l} (\tau_h - \tau_l)
+$$</p>
+
+$\Gamma(u)$ is a function of u as follows:
 
 <p>$$
 \Gamma_i(u) = \omega_i \left[
@@ -134,39 +140,17 @@ $$</p>
 
 ---
 
-#### Notes of programming:
+## Axisymmetric HCZ Model
 
-&emsp;On the lattice mesh, the *gradient $\nabla$ of the scalar field* can be calculated as:
+Firstly, the
 
-<p>$$
-    \nabla_\alpha\,\rho = \frac{1}{c_s^2 \Delta x} \sum_i \omega_i \rho(x+e_{\alpha i} \Delta t)
-$$</p>
-i.e.
-<p>$$
-\begin{aligned}
-    \nabla_x \, \rho(i,j) &= \frac{1}{3}\big(\rho(i+1, j) - \rho(i-1, j)\big)
-        + \frac{1}{12}\big(\rho(i+1, j+1) - \rho(i-1, j-1)\big)
-        + \frac{1}{12}\big(\rho(i+1, j-1) - \rho(i-1, j+1)\big),\\
-    \nabla_y \, \rho(i,j) &= \frac{1}{3}\big(\rho(i, j+1) - \rho(i, j-1)\big)
-        + \frac{1}{12}\big(\rho(i+1, j+1) - \rho(i-1, j-1)\big)
-        + \frac{1}{12}\big(\rho(i-1, j+1) - \rho(i+1, j-1)\big),\\
-    \nabla \, \rho(i,j) &= \nabla_x \, \rho(i,j)+\nabla_y \, \rho(i,j)\nonumber.
-\end{aligned}
-$$</p>
+&emsp;The main idea of this model is by adding the extra source item which represent the axisymmetric effect to the original LB equations (\ref{LBE_f}, \ref{LBE_g}), we can recover the Axisymmetric-N-S equation from these LB equations.
 
-&emsp;The laplacian $\Delta$ or $\nabla^2$ of the scaler field can calculated as:
-<p>$$
-\Delta \rho = \nabla^2 \rho
-    = \frac{2}{c_s^2 \Delta x^2} \sum_i \omega_i \big[\rho(x+e_i \Delta t) - \rho(x)\big],
-$$</p>
-i.e.
-<p>$$
-\begin{aligned}
-\Delta \rho =& \frac{4}{6}\big( \rho(i+1,j) + \rho(i-1,j) + \rho(i,j+1) + \rho(i,j-1) \big)\\
-    &+ \frac{1}{6}\big( \rho(i+1,j+1) + \rho(i-1,j-1) + \rho(i+1,j-1) + \rho(i-1,j+1) \big)\\
-    &- \frac{20}{6} \rho(i,j) \nonumber.
-\end{aligned}
-$$</p>
+&emsp;
+
+---
+
+The gradient and laplacian can have various implementations in our simulation. [Refer here for several notes for programming.](https://cheryli.github.io/LBM_droplet-shan-chen-2D/Notes_for_programming) However, please use at least *__fourth-order__* schemes to calculate the gradient for complex simulations.
 
 ---
 
