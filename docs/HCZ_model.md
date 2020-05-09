@@ -17,7 +17,7 @@ You can also refer to the original thesis: [He et al.(1999)](https://doi.org/10.
 <p>$$
     \overline{f}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{f}_i(x, t)    
     =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau_f}
-        - \frac{(2 \tau - 1)}{2 \tau_f}
+        - \frac{(2 \tau_f - 1)}{2 \tau_f}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{RT} 
         \Gamma_i(u) \delta_t,
 $$</p>
@@ -26,7 +26,7 @@ $$</p>
 \begin{aligned}
     &\overline{g}_i(x + \mathbf{e}_i \delta_x, t + \delta_t) - \overline{g}_i(x, t)     \\
     &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau_g}
-        - \frac{(2 \tau_g - 1)(\mathbf{e}_i - u)}{2 \tau}
+        - \frac{(2 \tau_g - 1)(\mathbf{e}_i - u)}{2 \tau_g}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big] \delta_t.
@@ -38,7 +38,7 @@ $$</p>
 <p>$$
     \overline{f}_i(x + \mathbf{e}_i, t + 1) - \overline{f}_i(x, t)
     =   - \frac{\overline{f}_i(x, t) - f_i^{eq}(x, t)}{\tau_f}
-        - \frac{(2 \tau_F - 1)}{2 \tau}
+        - \frac{(2 \tau_f - 1)}{2 \tau_f}
         \frac{(\mathbf{e}_i - u) \cdot \nabla \psi(\phi)}{c_s^2} 
         \Gamma_i(u),           \label{LBE_f}
 $$</p>
@@ -47,7 +47,7 @@ $$</p>
 \begin{aligned}
     &\overline{g}_i(x + \mathbf{e}_i, t + 1) - \overline{g}_i(x, t) \\
     &=   - \frac{\overline{g}_i(x, t) - g_i^{eq}(x, t)}{\tau_g}
-        - \frac{(2 \tau - 1)(\mathbf{e}_i - u)}{2 \tau_g}
+        - \frac{(2 \tau_g - 1)(\mathbf{e}_i - u)}{2 \tau_g}
         \cdot   \big[ \, 
             \Gamma_i(u)(F_s + G) - (\Gamma_i(u) - \Gamma_i(0)) \nabla \psi(\rho) \, 
         \big],          
