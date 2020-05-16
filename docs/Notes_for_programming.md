@@ -38,10 +38,10 @@ i.e.
 <p>$$
 \begin{aligned}
     \nabla_x \, \rho =& \frac{2}{9} \big( 
-            \rho(i+1,j) - \rho(i-1, j) + \rho(i+1,j+1) - \rho(i-1, j+1) - \rho(i-1, j+1) + \rho(i+1, j-1)
+            \rho(i+1,j) - \rho(i-1, j) + \rho(i+1,j+1) - \rho(i-1, j+1) - \rho(i-1, j-1) + \rho(i+1, j-1)
         \big) \\
         &- \frac{1}{36} \big(
-            \rho(i+2,j) - \rho(i-2, j) + \rho(i+2,j+2) - \rho(i-2, j+2) - \rho(i-2, j+2) + \rho(i+2, j-2)
+            \rho(i+2,j) - \rho(i-2, j) + \rho(i+2,j+2) - \rho(i-2, j+2) - \rho(i-2, j-2) + \rho(i+2, j-2)
         \big),   \\
     \nabla_y \, \rho =& \frac{2}{9} \big(
             \rho(i, j+1) - \rho(i, j-1) + \rho(i+1, j+1) + \rho(i-1, j+1) - \rho(i-1, j-1) - \rho(i+1, j-1)
