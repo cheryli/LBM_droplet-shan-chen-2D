@@ -56,7 +56,6 @@ Don't forget that: $u^2 = u_x^2 + u_y^2$.And using equation (\ref{Transform}), w
 
 <p> $$
 \begin{aligned}
-f_0^{eq} &= \frac{4}{9} \rho \left(1 - \frac{3 u^2}{2} \right)   \\
 m_0^{eq} &= \rho \left[ 
     \frac{4}{9} \left(
         1 - \frac{3 u^2}{2} 
