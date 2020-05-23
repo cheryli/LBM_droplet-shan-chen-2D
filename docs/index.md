@@ -194,7 +194,7 @@ M_{D2Q9} = \left[
 \right],
 $$</p>
 
-where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_z$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
+where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_y$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
 
 &emsp;The equilibrium moments as:
 <p> $$ m_{D2Q9}^{eq} = M f^{eq} = M  \rho \left[
