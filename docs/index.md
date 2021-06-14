@@ -194,6 +194,24 @@ M_{D2Q9} = \left[
 \right],
 $$</p>
 
+the inverse of $M$ is given as:
+<p>$$
+M_{D2Q9}^{-1} = \left[
+\frac{1}{36}
+\begin{matrix}
+    4  & -4 &  4 &  0 &  0 &  0 &  0 &  0 &  0  \\
+    4  & -1 & -2 &  6 & -6 &  0 &  0 &  9 &  0  \\
+    4  & -1 & -2 &  0 &  0 &  6 & -6 & -9 &  0  \\
+    4  & -1 & -2 & -6 &  6 &  0 &  0 &  9 &  0  \\
+    4  & -1 & -2 &  0 &  0 & -6 &  6 & -9 &  0  \\
+    4  &  2 &  1 &  6 &  3 &  6 &  3 &  0 &  9  \\
+    4  &  2 &  1 & -6 & -3 &  6 &  3 &  0 & -9  \\
+    4  &  2 &  1 & -6 & -3 & -6 & -3 &  0 &  9  \\
+    4  &  2 &  1 &  6 &  3 & -6 & -3 &  0 & -9  \\
+\end{matrix}
+\right]
+$$</p>
+
 where the moments $ m = Mf $ correspond to the physical quantities; i.e., $\rho$ is the density, $e$ and $\epsilon$ correspond to the energy and the energy squared, $j_x$ and $j_y$ are components of momentum flux, $q_x$ and $q_y$ correspond to the energy flux components, $e$ and $\epsilon$ correspond to the energy and energy square, $p_{xx}$ and $p_{xy}$ correspond to the diagonal and off-diagonal components of the stress tensor.
 
 &emsp;The equilibrium moments as:
