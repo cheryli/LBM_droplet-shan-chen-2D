@@ -196,8 +196,8 @@ $$</p>
 
 the inverse of $M$ is given as:
 <p>$$
-M_{D2Q9}^{-1} = \left[
-\frac{1}{36}
+M_{D2Q9}^{-1} = \frac{1}{36}
+\left[
 \begin{matrix}
     4  & -4 &  4 &  0 &  0 &  0 &  0 &  0 &  0  \\
     4  & -1 & -2 &  6 & -6 &  0 &  0 &  9 &  0  \\
